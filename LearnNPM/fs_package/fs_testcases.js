@@ -93,9 +93,78 @@
 
 
 // Example 10: Read all files in a folder
-const fs = require('fs');
-fs.readdir('.', (err, files) => {
-  if (err) throw err;
-  console.log("Files in this folder:");
-  files.forEach(file => console.log(file));
-});
+// const fs = require('fs');
+// fs.readdir('.', (err, files) => {
+//   if (err) throw err;
+//   console.log("Files in this folder:");
+//   files.forEach(file => console.log(file));
+// });
+
+
+// Example 11: Check if a file exists and get file info
+// const fs = require("fs")
+
+// if (fs.existsSync('student')) {
+//   console.log("input.txt exists");
+
+//   fs.stat('students', (err, stats) => {
+//     console.log("Size in bytes :", stats.size);
+//     console.log("Is file       :", stats.isFile());
+//     console.log("Is folder     :", stats.isDirectory());
+//   });
+// } 
+// else {
+//     console.log("File not found");
+// }
+
+
+
+
+// --------mini project------
+
+// const fs = require("fs")
+
+// fs.writeFile('note.txt','Hello Developers',(error,data)=>{
+//   if(error) throw error;
+//   console.log("1. Note created");
+
+
+//   //appendFile
+//   fs.appendFile("note.txt","\nim monesh iam, looking for a job",(err,data)=>{
+//     if (err) throw err;
+//     console.log("2.data was added...");
+
+//     fs.readFile("note.txt", "utf8", (err, data) =>{
+//       if (err) throw err;
+//       console.log(data)
+
+
+//       fs.unlink("note.txt", (err)=>{
+//         if (err) throw err;
+//         console.log("File Deleted")
+//       })
+//     })
+//   })
+// })
+
+
+const fs = require('fs/promises');
+
+// async function run() {
+//   await fs.writeFile('note2.txt', 'Buy milk');
+//   await fs.appendFile('note2.txt', '\nStudy Node.js');
+//   const data = await fs.readFile('note2.txt', 'utf8');
+//   console.log(data);
+//   await fs.unlink('note2.txt');
+//   console.log("Done");
+// }
+
+// run();
+
+
+const ReadData = async () => {
+  let data = await fs.readFile("input.txt","utf8");
+  console.log(data);
+}
+
+ReadData();
